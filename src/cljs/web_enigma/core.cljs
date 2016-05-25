@@ -1,11 +1,19 @@
 (ns web-enigma.core
-  (:require [reagent.core :as r :refer [atom]]))
+  (:require [reagent.core :as r :refer [atom]]
+            [goog.dom :as dom]
+            [goog.events :as events]))
 
 (enable-console-print!)
 
-(defonce app-state (atom {:text "Hello Chestnut!"}))
+(defonce app-state (atom "raw input"))
 
 (defn greeting []
-  [:h1 (:text @app-state)])
+  [:div
+    [:h1 [:input#engima-input {
+                  :type "text"
+                  :value @app-state
+                  :placeholder "your thing here"
+                  :on-change #(reset! app-state (-> % .-target .-value))}]]
+    [:h2 "your translated text: " @app-state]])
 
 (r/render [greeting] (js/document.getElementById "app"))
