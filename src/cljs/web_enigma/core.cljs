@@ -1,5 +1,5 @@
 (ns web-enigma.core
-  (:require [reagent.core :as reagent :refer [atom]]))
+  (:require [reagent.core :as r :refer [atom]]))
 
 (enable-console-print!)
 
@@ -8,4 +8,4 @@
 (defn greeting []
   [:h1 (:text @app-state)])
 
-(reagent/render [greeting] (js/document.getElementById "app"))
+(r/render [greeting] (js/document.getElementById "app"))

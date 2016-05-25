@@ -19,9 +19,9 @@
 
   :min-lein-version "2.6.1"
 
-  :source-paths ["src/clj" "src/cljs"]
+  :source-paths ["src/clj" "src/cljs" "src/enigma"]
 
-  :test-paths ["test/clj"]
+  :test-paths ["test/clj" "test/enigma"]
 
   :clean-targets ^{:protect false} [:target-path :compile-path "resources/public/js"]
 
