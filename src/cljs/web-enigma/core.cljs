@@ -17,14 +17,17 @@
                     :placeholder "text to encode"
                     :on-change #(reset! app-state (-> % .-target .-value))}]]
             [:label "Enigma Encoder"]
-            [:input {
+            [:div.card-action [:input {
               :type "button"
-              :class "waves-effect waves-purple btn-flat"
+              :class "btn-flat waves-effect hoverable waves-purple"
               :value "clear"
               :on-click #(reset! app-state "")
-              }]]
+              }]]]
 
-    [:div.card-panel.deep-purple.lighten-2
-      [:h4 "encoded text: " [:p (enigma/encode @app-state)]]]])
+    [:div.card-panel.deep-purple.lighten-4
+      [:div.card-content
+        [:h4.card-title "encoded text: "]
+        [:p.flow-text (enigma/encode @app-state)]]]])
+
 
 (r/render [greeting] (js/document.getElementById "app"))
