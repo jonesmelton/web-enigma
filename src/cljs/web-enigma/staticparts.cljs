@@ -1,5 +1,5 @@
-(ns enigma.static-parts
-  (:require [enigma.rotor-ops :as rotor]))
+(ns web-enigma.staticparts
+  (:require [web-enigma.rotorops :as rotor]))
 
 (def alphabet  "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
 (def raw-alphabet (seq alphabet))
@@ -29,7 +29,3 @@
 ; ground rotors to their defaults of K C M
 (def grounded-rotors
  (rotor/ground-all [right-rotor center-rotor left-rotor]))
-
-
-; parts - static parts
-; rotor - rotor ops

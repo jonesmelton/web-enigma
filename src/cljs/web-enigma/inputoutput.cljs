@@ -1,6 +1,6 @@
-(ns enigma.input-output
-  (:require [enigma.static-parts :as parts]
-            [enigma.rotor-ops :as rotor]))
+(ns web-enigma.inputoutput
+  (:require [web-enigma.staticparts :as parts]
+            [web-enigma.rotorops :as rotor]))
 
 (defn index-of [char wheel]
   (.indexOf wheel char))

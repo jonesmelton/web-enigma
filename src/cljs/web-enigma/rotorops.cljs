@@ -1,4 +1,4 @@
-(ns enigma.rotor-ops)
+(ns web-enigma.rotorops)
 
 (defn disc-into-wheel [disc]
   (seq disc))
