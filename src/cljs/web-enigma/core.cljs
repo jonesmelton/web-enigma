@@ -17,10 +17,14 @@
                     :placeholder "text to encode"
                     :on-change #(reset! app-state (-> % .-target .-value))}]]
             [:label "Enigma Encoder"]
-            [:a.waves-effect.waves-purple.btn-flat#clear-button "clear"]]
+            [:input {
+              :type "button"
+              :class "waves-effect waves-purple btn-flat"
+              :value "clear"
+              :on-click #(reset! app-state "")
+              }]]
+
     [:div.card-panel.deep-purple.lighten-2
       [:h4 "encoded text: " [:p (enigma/encode @app-state)]]]])
-
-(events/listen (dom/getElement "clear-button") "click" (reset! app-state ""))
 
 (r/render [greeting] (js/document.getElementById "app"))
