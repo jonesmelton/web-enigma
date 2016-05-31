@@ -2,6 +2,10 @@
   (:require [web-enigma.staticparts :as parts]
             [web-enigma.rotorops :as rotor]))
 
+(defn validate-str
+  [string]
+  (apply str (re-seq #"[a-zA-Z]" string)))
+
 (defn index-of [char wheel]
   (.indexOf wheel char))
 

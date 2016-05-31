@@ -3,7 +3,7 @@
             [web-enigma.inputoutput :as translate]))
 
 (defn translate-string [string rotatoes]
-  (loop [remaining-letters  string
+  (loop [remaining-letters  (translate/validate-str string)
          encoded-letters    []
          rotors             (translate/step rotatoes)]
     (if-not (seq remaining-letters)
