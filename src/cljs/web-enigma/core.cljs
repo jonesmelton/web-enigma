@@ -8,8 +8,26 @@
 
 (defonce user-input (atom ""))
 
-(defn greeting []
+(defn encrypt []
   [:div.container
+    [:div.row
+     [:div.card-panel.col.s1]
+     [:div.card-panel.deep-purple-text.col.s2
+      [:div.card-content
+       [:h6.card-title "left rotor"]
+       [:h3 (first (enigma/windows @user-input)) ]]]
+     [:div.card-panel.col.s2]
+     [:div.card-panel.deep-purple-text.col.s2
+      [:div.card-content
+       [:h6.card-title "center rotor"]
+       [:h3 (second (enigma/windows @user-input)) ]]]
+     [:div.card-panel.col.s2]
+     [:div.card-panel.deep-purple-text.col.s2
+      [:div.card-content
+       [:h6.card-title "right rotor"]
+       [:h3 (last (enigma/windows @user-input)) ]]]
+     [:div.card-panel.col.s1]
+     ]
     [:div.card-panel.input-field.deep-purple-text
       [:h2  [:input {
                     :type "text"
@@ -30,4 +48,4 @@
         [:p.flow-text (enigma/encode @user-input)]]]])
 
 
-(r/render [greeting] (js/document.getElementById "app"))
+(r/render [encrypt] (js/document.getElementById "app"))

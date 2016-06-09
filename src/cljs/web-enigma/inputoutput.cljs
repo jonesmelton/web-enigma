@@ -67,3 +67,21 @@
 
 (defn step [rotors]
   [(step-right rotors) (step-center rotors) (step-left rotors)])
+
+(defn rotor-position
+  [rotors]
+  (reverse (map :alphabet rotors)))
+
+(defn rotor-windows
+  [wheel]
+  (map first (rotor-position wheel)))
+
+(defn translate-rotor [string rotatoes]
+  (loop [remaining-letters  (rest (validate-str string))
+         encoded-letters    []
+         rotors             rotatoes]
+    (if-not (seq remaining-letters)
+      (rotor-windows rotors)
+      (let [[first-char & rest] remaining-letters]
+        (recur rest (conj encoded-letters (single-lap first-char rotors)) (step rotors))))))
+

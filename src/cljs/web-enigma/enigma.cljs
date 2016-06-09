@@ -13,6 +13,8 @@
 
 (defn encode [& rest] (translate-string (clojure.string/upper-case (apply str rest)) parts/grounded-rotors ))
 
+(defn windows [& rest] (translate/translate-rotor (clojure.string/upper-case (apply str rest)) parts/grounded-rotors ))
+
 (defn -main
   [& rest]
   (println (translate-string (clojure.string/upper-case (apply str rest)) parts/grounded-rotors ))
