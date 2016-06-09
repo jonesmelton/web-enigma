@@ -1,6 +1,7 @@
 (ns web-enigma.enigma
   (:require [web-enigma.staticparts :as parts]
-            [web-enigma.inputoutput :as translate]))
+            [web-enigma.inputoutput :as translate]
+            [web-enigma.rotorops :as rotor]))
 
 (defn translate-string [string rotatoes]
   (loop [remaining-letters  (translate/validate-str string)
