@@ -6,28 +6,28 @@
 
 (enable-console-print!)
 
-(defonce app-state (atom ""))
+(defonce user-input (atom ""))
 
 (defn greeting []
   [:div.container
     [:div.card-panel.input-field.deep-purple-text
       [:h2  [:input {
                     :type "text"
-                    :value @app-state
+                    :value @user-input
                     :placeholder "text to encode"
-                    :on-change #(reset! app-state (-> % .-target .-value))}]]
+                    :on-change #(reset! user-input (-> % .-target .-value))}]]
             [:label "Enigma Encoder"]
             [:div.card-action
               [:input {
                 :type "button"
                 :class "btn-flat waves-effect hoverable waves-purple"
                 :value "clear"
-                :on-click #(reset! app-state "")}]]]
+                :on-click #(reset! user-input "")}]]]
 
     [:div.card-panel.deep-purple.lighten-4
       [:div.card-content
         [:h4.card-title "encoded text: "]
-        [:p.flow-text (enigma/encode @app-state)]]]])
+        [:p.flow-text (enigma/encode @user-input)]]]])
 
 
 (r/render [greeting] (js/document.getElementById "app"))
