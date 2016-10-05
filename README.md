@@ -1,2 +1,2 @@
 
-A material frontend for the enigma machine simulator
+A ClojureScript/Reagent frontend for the enigma machine simulator
